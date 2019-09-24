@@ -1,63 +1,50 @@
-﻿@model List<R6Tracker.Models.ResultModel>
+﻿
+<body class="body-bg-image">
+    <div class="container">
+        <header>
+            <img src="~/Content/Images/logo1.png" alt="Logo" />
+        </header>
+        <section class="search">
+            <h1>Track Player Stats</h1>
+            <form v-on:submit.prevent="OnSubmit">
+                <div class="form-group">
+                    <label for="platform">Platform</label>
+                    <select name="platform" id="platform" v-model="platform">
+                        <option value="uplay">PC</option>
+                        <option value="psn">Playstation</option>
+                        <option value="xbl">Xbox</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="p_name">Username</label>
+                    <input type="text"
+                           name="search"
+                           v-model="gamertag"
+                           id="gamertag"
+                           placeholder="Uplay ID, PSN ID, Xbox Live gamertag" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn" />
+                </div>
+            </form>
+        </section>
+    </div>
+</body>
 
-@{
-    ViewBag.Title = "Index";
-}
 
-<h2>Index</h2>
+<script type="text/javascript">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    @*<tr>
-        <th>
-            @Html.DisplayNameFor(model => model.P_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.P_level)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.P_platform)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.P_currentmmr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.P_currentrank)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Kd)
-        </th>
-        <th></th>
-    </tr>*@
+</script>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.P_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.P_level)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.P_platform)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.P_currentmmr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.P_currentrank)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Kd)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+<style scoped>
+    img {
+        width: 300px;
+    }
 
-</table>
+    @@media(max-width: 700px) {
+        img {
+            display: block;
+            margin: auto;
+        }
+    }
+</style>

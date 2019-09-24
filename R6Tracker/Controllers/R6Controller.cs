@@ -14,7 +14,7 @@ namespace R6Tracker.Controllers
     public class R6Controller : ApiController
     {
         // GET: api/R6
-        public async Task<RootObject> Get(string platform, string search)
+        public async Task<RootObject> GetStats(string platform, string search)
         {
             ApiHelper.InitializeClient();
             var uriBuilder = new UriBuilder("https://r6tab.com/api/search.php");
@@ -28,10 +28,10 @@ namespace R6Tracker.Controllers
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    RootObject result = await response.Content.ReadAsAsync<RootObject>();
-                    //var R6res = JsonConvert.DeserializeObject<RootObject[]>(result);
+                    var result = await response.Content.ReadAsStringAsync();
+                    var R6res = JsonConvert.DeserializeObject<RootObject>(result);
 
-                    return result;
+                    return R6res;
                 }
                 else
                 {

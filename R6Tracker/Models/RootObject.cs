@@ -8,9 +8,9 @@ namespace R6Tracker.Models
 {
     public class RootObject
     {
-        [JsonProperty]
+        [JsonProperty("results")]
         public ResultModel[] Results { get; set; }
-        [JsonProperty]
+        [JsonProperty("totalresults")]
         public int TotalResults { get; set; }
     }
 }
