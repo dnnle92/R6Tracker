@@ -16,44 +16,10 @@ namespace R6Tracker.Controllers
         // GET: api/R6
         public async Task<RootObject> GetStats(string platform, string search)
         {
-            ApiHelper.InitializeClient();
-            var uriBuilder = new UriBuilder("https://r6tab.com/api/search.php");
-            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
-            query["platform"] = platform;
-            query["search"] = search;
-            uriBuilder.Query = query.ToString();
-            string url = uriBuilder.ToString();
+            GetR6Stats stats = new GetR6Stats();
 
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
-            {
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsStringAsync();
-                    var R6res = JsonConvert.DeserializeObject<RootObject>(result);
+            return await stats.GetStats(platform, search);
 
-                    return R6res;
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
-            }
-        }
-
-        // GET: api/R6/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/R6
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/R6/5
-        public void Put(int id, [FromBody]string value)
-        {
         }
     }
 }

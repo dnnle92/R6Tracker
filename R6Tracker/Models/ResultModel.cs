@@ -8,6 +8,8 @@ namespace R6Tracker.Models
 {
     public class ResultModel
     {
+        [JsonProperty("p_id")]
+        public string P_id { get; set; }
         [JsonProperty("p_name")]
         public string P_name { get; set; }
         [JsonProperty("p_level")]

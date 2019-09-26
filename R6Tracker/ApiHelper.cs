@@ -14,7 +14,7 @@ namespace R6Tracker
         public static void InitializeClient()
         {
             ApiClient = new HttpClient();
-            //ApiClient.BaseAddress = new Uri("https://r6tab.com/api/search.php");
+            //ApiClient.BaseAddress = new Uri("");
             ApiClient.DefaultRequestHeaders.Accept.Clear();
             ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }

@@ -1,4 +1,8 @@
-﻿
+﻿@model R6Tracker.Models.RootObject
+@{
+    ViewBag.Title = "Home";
+}
+
 <body class="body-bg-image">
     <div class="container">
         <header>
@@ -6,35 +10,31 @@
         </header>
         <section class="search">
             <h1>Track Player Stats</h1>
-            <form v-on:submit.prevent="OnSubmit">
-                <div class="form-group">
-                    <label for="platform">Platform</label>
-                    <select name="platform" id="platform" v-model="platform">
-                        <option value="uplay">PC</option>
-                        <option value="psn">Playstation</option>
-                        <option value="xbl">Xbox</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="p_name">Username</label>
-                    <input type="text"
-                           name="search"
-                           v-model="gamertag"
-                           id="gamertag"
-                           placeholder="Uplay ID, PSN ID, Xbox Live gamertag" />
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Submit" class="btn" />
-                </div>
-            </form>
+            @using (Html.BeginForm("ProfileStats", "Home", FormMethod.Get))
+            {
+                <form>
+                    <div class="form-group">
+                        <label>Platform</label>
+                        <select name="platform">
+                            <option value="uplay">PC</option>
+                            <option value="psn">Playstation</option>
+                            <option value="xbl">Xbox</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text"
+                               name="search" required
+                               placeholder="Uplay ID, PSN ID, Xbox Live gamertag" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="btn" />
+                    </div>
+                </form>
+            }
         </section>
     </div>
 </body>
-
-
-<script type="text/javascript">
-
-</script>
 
 <style scoped>
     img {

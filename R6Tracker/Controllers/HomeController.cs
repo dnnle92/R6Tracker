@@ -12,10 +12,14 @@ namespace R6Tracker.Controllers
 {
     public class HomeController : Controller
     {
-        [HttpGet]
-        public async Task<ActionResult> Index(string platform, string search)
+        public ActionResult Index()
         {
+            return View();
+        }
 
+        [HttpGet]
+        public async Task<ActionResult> ProfileStats(string platform, string search)
+        {
             var R6Stats = new R6Controller().GetStats(platform, search);
 
             return View(await R6Stats);
