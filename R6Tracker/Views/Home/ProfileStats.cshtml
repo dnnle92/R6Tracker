@@ -13,7 +13,7 @@
                 <h1 class="username">@item.P_name</h1>
                 <div class="grid">
                     <div>
-                        <img id="random" />
+                        <img id="random" src="" alt=""/>
                     </div>
                     <div>
                         <ul>
@@ -55,19 +55,27 @@
 @Html.ActionLink("Go Back", "Index")
 
 <script type="text/javascript">
-$(function(){
+    $(document).ready(function () {
+       
+        var image = new Array();
+        image[0] = '@Url.Content("~/Content/Images/ash.png")';
+        image[1] = '@Url.Content("~/Content/Images/iq.png")';
+        image[2] = '@Url.Content("~/Content/Images/hibana.png")';
+        image[3] = '@Url.Content("~/Content/Images/sledge.png")';
+        image[4] = '@Url.Content("~/Content/Images/castle.png")';
+        image[5] = '@Url.Content("~/Content/Images/clash.png")';
+        image[6] = '@Url.Content("~/Content/Images/goyo.png")';
+        image[7] = '@Url.Content("~/Content/Images/mute.png")';
+        image[8] = '@Url.Content("~/Content/Images/smoke.png")';
+        image[9] = '@Url.Content("~/Content/Images/alibi.png")';
+        image[10] = '@Url.Content("~/Content/Images/gridlock.png")';
+        image[11] = '@Url.Content("~/Content/Images/maestro.png")';
+        var size = image.length
+        var x = Math.floor(size * Math.random())
 
-    var image = new Array ();
-    image[0] = "http://placehold.it/20";
-    image[1] = "http://placehold.it/30";
-    image[2] = "http://placehold.it/40";
-    image[3] = "http://placehold.it/50";
-    var size = image.length
-    var x = Math.floor(size*Math.random())
+        $("#random").attr("src", image[x]);
 
-    $('#random').attr('src',image[x]);
-
-})
+    });
 </script>
 
 <style scoped>
