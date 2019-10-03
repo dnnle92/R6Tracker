@@ -4,7 +4,7 @@
 }
 
 <section>
-    <h2>Profile</h2>
+    <h1>Profile</h1>
     <div class="container">
         @if (Model.Results != null)
         {
@@ -13,7 +13,7 @@
                 <h1 class="username">@item.P_name</h1>
                 <div class="grid">
                     <div>
-                        <img id="random" src="" alt=""/>
+                        <img id="random" src="" alt="" />
                     </div>
                     <div>
                         <ul>
@@ -27,36 +27,36 @@
                                 <p>
                                     @{
                                         @item.Kd
-                                }
-                            </p>
-                        </li>
-                        <li>
-                            <h4>Rank/MMR</h4>
-                            <p>
-                                @item.P_currentrank
-                                <span>(@item.P_currentmmr)</span>
-                            </p>
-                        </li>
-                        <li>
-                            <h4>Platform</h4>
-                            <p>@item.P_platform</p>
-                        </li>
-                    </ul>
+                                    }
+                                </p>
+                            </li>
+                            <li>
+                                <h4>Rank/MMR</h4>
+                                <p>
+                                    @item.P_currentrank
+                                    <span>(@item.P_currentmmr)</span>
+                                </p>
+                            </li>
+                            <li>
+                                <h4>Platform</h4>
+                                <p>@item.P_platform</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            }
         }
-    }
-    else
-    {
-        <h1>Profile not found</h1>
-    }
+        else
+        {
+            <h1>Profile not found</h1>
+        }
     </div>
 </section>
-@Html.ActionLink("Go Back", "Index")
+@Html.ActionLink("Go Back", "Index", null, new { @class = "btn" })
 
 <script type="text/javascript">
     $(document).ready(function () {
-       
+
         var image = new Array();
         image[0] = '@Url.Content("~/Content/Images/ash.png")';
         image[1] = '@Url.Content("~/Content/Images/iq.png")';

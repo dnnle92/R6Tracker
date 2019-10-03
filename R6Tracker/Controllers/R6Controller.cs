@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using R6Tracker.Models;
+﻿using R6Tracker.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +12,7 @@ namespace R6Tracker.Controllers
 {
     public class R6Controller : ApiController
     {
+        [HttpGet]
         // GET: api/R6
         public async Task<RootObject> GetStats(string platform, string search)
         {
