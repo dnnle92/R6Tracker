@@ -16,7 +16,7 @@ namespace R6Tracker.Controllers
         // GET: api/R6
         public async Task<RootObject> GetStats(string platform, string search)
         {
-            GetR6Stats stats = new GetR6Stats();
+            var stats = new GetR6Stats();
 
             return await stats.GetStats(platform, search);
 
